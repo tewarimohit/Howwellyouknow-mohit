@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End Game</title>
+</head>
+<body>
+    
+    var readlineSync=require('readline-sync')
+var userName=readlineSync.question("What is Your Name? ")
+console.log("Hello "+userName+" Do you know Mohit?")
+ var myscore=0;
+//function play
+function play(question, answer)
+{
+var answer1=readlineSync.question(question);
+if(answer1.toUpperCase()==answer.toUpperCase())
+{
+console.log("You are correct.")
+myscore=myscore+1;
+}
+else
+{
+console.log("you are wrong.")
+}
+console.log('Your score is= ',myscore)
+console.log("--------")
+}
+//creating object
+var questionOne = {question:"Where do I live?",
+  answer:"Banglore"}
+var questionTwo = {question:"Which Sport do I like most?",
+answer:"Badminton"}
+var questionThree = {
+  question:"What is my pet's name?",
+  answer:"Ninja"
+}
+var questionFour = {
+  question:"Which book do I like most?",
+  answer: "Harry Potter"
+}
+var questionFive = {
+  question:"Which car do I like most?",
+  answer: "Lamborghini"
+}
+//array
+var questions=[questionOne,questionTwo,questionThree,questionFour,questionFive];
+//loop
+for(var i=0;i<questions.length;i++)
+{
+var currentQue = questions[i];
+play(currentQue.question,currentQue.answer)
+};
+console.log("Wow "+userName+" you scored =",myscore)
+
+var highScoreOne={
+  name:"Mohit",
+  score:4
+}
+var highScoreTwo={
+  name:"Kartik",
+  score:3
+}
+var highScores=[highScoreOne,highScoreTwo]
+if(myscore>highScoreOne.score)
+{
+  console.log("Congratulations "+userName+" This is the highest score.")
+}  else if(myscore==highScoreOne.score)
+{
+console.log(userName+" Your score is equal to that of "+highScoreOne.name)
+}
+else if(myscore==highScoreTwo.score)
+{
+ console.log(userName+" Your score is equal to that of "+highScoreTwo.name) 
+}
+else
+{
+  console.log("You don't know Mohit.")
+}
+console.log("Previous scores:-")
+for(var j=0;j<highScores.length;j++)
+{
+var tempScore=highScores[j];
+
+console.log(tempScore.name + " Scored ="+tempScore.score)
+
+}
+console.log("Thank You "+userName+" For Participating.")
+</body>
+</html>
